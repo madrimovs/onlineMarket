@@ -1,12 +1,13 @@
 import findElement from "./helpers/findElement.js";
-const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
+
+export const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
 
 const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
 const elSelect = findElement("#select");
 const elSearch = findElement("#search");
 
-let products = [];
+export let products = [];
 
 // ============== renderProducts ================//
 function renderProducts(array, parent = elCards) {
@@ -34,9 +35,10 @@ function renderProducts(array, parent = elCards) {
 
 	parent.appendChild(fragment);
 }
+export default renderProducts;
 
 /////////////////////////////////////////////////////////
-(async function () {
+export const asyncFunction = async function () {
 	const res = await fetch(BASE_URL + "/products");
 
 	let data = await res.json();
@@ -47,7 +49,6 @@ function renderProducts(array, parent = elCards) {
 		const element = products[i];
 
 		const elOption = document.createElement("option");
-
 		elOption.textContent = element.category;
 
 		elSelect.appendChild(elOption);
@@ -90,4 +91,5 @@ function renderProducts(array, parent = elCards) {
 	});
 
 	renderProducts(products);
-})();
+};
+asyncFunction();

@@ -15,8 +15,8 @@
 	</head>
 	<body class="bg-dark text-light">
 		<header>
+			<!--====================== NAVBAR ==========================-->
 			<section>
-				<!--====================== NAVBAR ==========================-->
 				<nav class="navbar navbar-dark bg-dark navbar-expand-lg shadow">
 					<div class="container">
 						<a class="navbar-brand" href="#">Market</a>
@@ -34,10 +34,10 @@
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="#">Home</a>
+									<a class="nav-link" aria-current="page" href="./index.html">Home</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="./admin.html">Admin panel</a>
+									<a class="nav-link active" href="#">Admin panel</a>
 								</li>
 
 								<li class="nav-item">
@@ -53,18 +53,34 @@
 									aria-label="Search"
 								/>
 
-								<!--==================== SEARCH/SELECT ======================-->
+								<!--================ SEARCH/SELECT =================-->
 								<select name="select" id="select" class="form-control w-25">
 									<option value="All Products">All</option>
 								</select>
+								<!-- ============================================== -->
 							</form>
 						</div>
 					</div>
 				</nav>
 			</section>
+			<!-- ======================================================================= -->
 		</header>
 
 		<main>
+			<!--================= EDITE FORM =================-->
+			<section>
+				<div class="container mt-5">
+					<form id="product-form" class="form-control w-50 mx-auto bg-dark shadow">
+						<input name="image" type="text" placeholder="image" class="form-control mt-2 bg-dark text-light" />
+						<input name="title" type="text" placeholder="title" class="form-control mt-2 bg-dark text-light" />
+						<input name="category" type="text" placeholder="category" class="form-control mt-2 bg-dark text-light" />
+						<input name="price" type="number" placeholder="price" class="form-control mt-2 bg-dark text-light" />
+						<input name="overwiev" type="text" placeholder="overwiev" class="form-control mt-2 bg-dark text-light" />
+						<input type="submit" class="btn btn-primary mt-3 form-control" />
+					</form>
+				</div>
+			</section>
+			<!-- =========================================== -->
 			<section>
 				<div class="container mt-5">
 					<div class="row product-cards gap-3 justify-content-center"></div>
@@ -81,11 +97,12 @@
 							</div>
 						</div>
 					</template>
+					<!-- ================================================= -->
 				</div>
 			</section>
 		</main>
 
 		<footer></footer>
-		<script type="module" src="./js/app.js"></script>
+		<script type="module" src="./js/admin.js"></script>
 	</body>
 </html>
