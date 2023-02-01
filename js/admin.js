@@ -1,7 +1,5 @@
 import findElement from "./helpers/findElement.js";
-import renderProducts from "./app.js";
 import { asyncFunction } from "./app.js";
-import { products } from "./app.js";
 import { BASE_URL } from "./app.js";
 
 const elForm = findElement("#product-form");
