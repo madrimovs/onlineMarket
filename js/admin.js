@@ -79,7 +79,7 @@ elForm.addEventListener("submit", (evt) => {
 		});
 });
 
-//////////////////////// elCards /////////////////////////
+//////////////////////// elCards/DELETE /////////////////////////
 elCards.addEventListener("click", (evt) => {
 	const target = evt.target;
 
