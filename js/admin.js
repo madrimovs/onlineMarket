@@ -21,6 +21,7 @@ function renderProducts(array, parent = elCards) {
 		const category = findElement(".product-category", template);
 		const price = findElement(".product-price", template);
 		const overwiev = findElement(".product-overwiev", template);
+
 		const deleteBtn = findElement(".deleteBtn", template);
 		const editeBtn = findElement(".editeBtn", template);
 
@@ -85,10 +86,16 @@ elCards.addEventListener("click", (evt) => {
 	if (target.className.includes("deleteBtn")) {
 		const id = target.dataset.id;
 
-		// fetch(BASE_URL + "/products/" + id)
-		// 	.then((res) => res.json())
-		// 	.then((data) => {
-		// 		console.log(data);
-		// 	});
+		fetch(BASE_URL + "/products/" + id, {
+			method: "DELETE",
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				// renderProducts(products);
+				alert("o'chdi");
+			})
+			.catch((err) => {
+				alert("xato");
+			});
 	}
 });
