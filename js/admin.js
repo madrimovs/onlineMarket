@@ -22,8 +22,8 @@ function renderProducts(array, parent = elCards) {
 		const price = findElement(".product-price", template);
 		const overwiev = findElement(".product-overwiev", template);
 
-		const deleteBtn = findElement(".deleteBtn", template);
-		const editeBtn = findElement(".editeBtn", template);
+		const deleteBtn = findElement("#deleteBtn", template);
+		const editeBtn = findElement("#editeBtn", template);
 
 		deleteBtn.dataset.id = product.id;
 		editeBtn.dataset.id = product.id;
@@ -76,6 +76,8 @@ elForm.addEventListener("submit", (evt) => {
 		})
 		.catch((err) => {
 			alert("Xatolik yuz berdi qaytadan urinib ko'ring");
+
+			console.log(err);
 		});
 });
 
@@ -85,14 +87,15 @@ elCards.addEventListener("click", (evt) => {
 
 	if (target.className.includes("deleteBtn")) {
 		const id = target.dataset.id;
+		console.log(id);
 
-		fetch(BASE_URL + "/products/" + id, {
+		fetch(BASE_URL + "products/" + id, {
 			method: "DELETE",
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				// renderProducts(products);
 				alert("o'chdi");
+				console.log(data);
 			})
 			.catch((err) => {
 				alert("xato");

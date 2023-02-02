@@ -1,5 +1,5 @@
 import findElement from "./helpers/findElement.js";
-export const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io";
+export const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
 export const elTemplate = findElement("#product-template");
 export const elCards = findElement(".product-cards");
 const elSelect = findElement("#select");
@@ -37,7 +37,7 @@ export default renderProducts;
 
 ////////////////////////// asyncFunction /////////////////////////
 export const asyncFunction = async function () {
-	const res = await fetch(BASE_URL + "/products");
+	const res = await fetch(BASE_URL + "products/");
 
 	let data = await res.json();
 

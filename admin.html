@@ -101,7 +101,7 @@
 							placeholder="overwiev"
 							class="form-control mt-2 bg-dark text-light"
 						/>
-						<input type="submit" class="btn btn-primary mt-3 form-control" />
+						<input type="submit" class="btn btn-primary mt-3 form-control" value="Add Product" />
 					</form>
 				</div>
 			</section>
@@ -112,16 +112,16 @@
 
 					<!--==================== TEMPLATE =====================-->
 					<template id="product-template">
-						<div class="col-6 card p-0 bg-dark shadow" style="width: 18rem">
+						<div class="col-6 card p-0 bg-dark shadow h-50" style="width: 20rem">
 							<img src="" class="card-img-top product-image" alt="" />
 							<div class="card-body">
-								<h5 class="card-title product-name">Card title</h5>
-								<p class="card-text product-overwiev"></p>
+								<h4 class="card-title product-name text-uppercase">Card title</h4>
+								<p class="card-text product-overwiev lh-lg text-decoration-underline h6 fw-light"></p>
 								<p class="card-text product-category"></p>
 								<p class="card-text text-primary product-price"></p>
 
-								<button class="btn btn-outline-danger w-100 deleteBtn">Delete</button>
-								<button class="btn btn-outline-success mt-2 w-100 editeBtn">Edite</button>
+								<button id="deleteBtn" class="btn btn-outline-danger w-100 deleteBtn">Delete</button>
+								<button id="editeBtn" class="btn btn-outline-success mt-2 w-100 editeBtn">Edite</button>
 							</div>
 						</div>
 					</template>
