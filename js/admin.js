@@ -94,7 +94,7 @@ elForm.addEventListener("submit", (evt) => {
 			asyncFunction();
 			renderProducts(products);
 
-			alert("Mahsulotni qo'shishga aminmisiz?");
+			alert("Mahsulot qo'shildi");
 
 			elForm.reset();
 		})
@@ -155,7 +155,7 @@ elCards.addEventListener("click", (evt) => {
 			.then((data) => {
 				asyncFunction();
 
-				alert("Mahsulotni o'chirishga aminmisiz?");
+				alert("Mahsulot o'chirildi");
 			})
 			.catch((err) => {
 				alert("Xatolik yuz berdi qaytadan urinib ko'ring");
@@ -186,18 +186,18 @@ elCards.addEventListener("click", (evt) => {
 				overwiev.value = product.overwiev;
 
 				editeButton.addEventListener("click", () => {
-					const newArr = {
-						id: product.id,
-						image: image.value,
-						name: title.value,
-						price: price.value,
-						overwiev: overwiev.value,
-						category: category.value,
-					};
+					// const newArr = {
+					// 	id: product.id,c
+					// 	image: image.value,
+					// 	name: title.value,
+					// 	price: price.value,
+					// 	overwiev: overwiev.value,
+					// 	category: category.value,
+					// };
 
 					fetch(BASE_URL + "products/" + id, {
 						method: "EDITE",
-						BODY: JSON.stringify(newArr),
+						// BODY: JSON.stringify(newArr),
 					})
 						.then((res) => res.json())
 						.then((data) => {
