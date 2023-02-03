@@ -187,7 +187,7 @@ elCards.addEventListener("click", (evt) => {
 
 				editeButton.addEventListener("click", () => {
 					// const newArr = {
-					// 	id: product.id,c
+					// 	id: product.id,
 					// 	image: image.value,
 					// 	name: title.value,
 					// 	price: price.value,
