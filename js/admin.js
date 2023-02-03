@@ -78,22 +78,23 @@ elForm.addEventListener("submit", (evt) => {
 	const overwiev = target.image.value;
 
 	const newProduct = {
-		image,
-		title,
-		category,
-		price,
-		overwiev,
+		image: image.value,
+		name: title.value,
+		category: category.value,
+		price: price.value,
+		overwiev: overwiev.value,
 	};
 
 	fetch(BASE_URL + "/products", {
 		method: "POST",
-		BODY: JSON.stringify(newProduct),
+		body: JSON.stringify(newProduct),
+		headers: {
+			"Content-Type": "application/json",
+		},
 	})
 		.then((res) => res.json())
 		.then((data) => {
-			data = products;
 			asyncFunction();
-			renderProducts(products);
 
 			alert("Mahsulot qo'shildi");
 
@@ -101,8 +102,6 @@ elForm.addEventListener("submit", (evt) => {
 		})
 		.catch((err) => {
 			alert("Xatolik yuz berdi qaytadan urinib ko'ring");
-
-			console.log(err);
 		});
 });
 
@@ -187,28 +186,31 @@ elCards.addEventListener("click", (evt) => {
 				overwiev.value = product.overwiev;
 
 				editeButton.addEventListener("click", () => {
-					// const newArr = {
-					// 	id: product.id,
-					// 	image: image.value,
-					// 	name: title.value,
-					// 	price: price.value,
-					// 	overwiev: overwiev.value,
-					// 	category: category.value,
-					// };
+					const newArr = {
+						image: image.value,
+						name: title.value,
+						price: price.value,
+						overwiev: overwiev.value,
+						category: category.value,
+					};
 
 					fetch(BASE_URL + "products/" + id, {
-						method: "EDITE",
-						// BODY: JSON.stringify(newArr),
+						method: "PUT",
+						body: JSON.stringify(newArr),
+
+						headers: {
+							"Content-Type": "application/json",
+						},
+
 					})
-						.then((res) => res.json())
-						.then((data) => {
+						.then((res) => {
 							asyncFunction();
 
 							alert("Mahsulot o'zgartirildi");
+							return res.json();
 						})
-						.catch((err) => {
-							alert("Xatolik yuz berdi qaytadan urinib ko'ring");
-						});
+						.then((response) => console.log("Success:", response))
+						.catch((error) => console.error(error));
 				});
 			}
 		});
