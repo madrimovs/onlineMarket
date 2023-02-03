@@ -1,4 +1,5 @@
 import findElement from "./helpers/findElement.js";
+
 const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
 const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
