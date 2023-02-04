@@ -1,7 +1,8 @@
 import findElement from "./helpers/findElement.js";
+
 export const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
-export const elTemplate = findElement("#product-template");
-export const elCards = findElement(".product-cards");
+const elTemplate = findElement("#product-template");
+const elCards = findElement(".product-cards");
 const elSelect = findElement("#select");
 const elSearch = findElement("#search");
 
@@ -33,10 +34,9 @@ function renderProducts(array, parent = elCards) {
 
 	parent.appendChild(fragment);
 }
-export default renderProducts;
 
 ////////////////////////// asyncFunction /////////////////////////
-export const asyncFunction = async function () {
+const asyncFunction = async function () {
 	const res = await fetch(BASE_URL + "products/");
 
 	let data = await res.json();
@@ -52,42 +52,42 @@ export const asyncFunction = async function () {
 		elSelect.appendChild(elOption);
 	}
 
-	///////////////////////// elSelect /////////////////////////
-	elSelect.addEventListener("change", (evt) => {
-		const value = elSelect.value;
-
-		const filteredPost = [];
-
-		if (value == "All Products") {
-			renderProducts(products);
-		} else {
-			products.forEach((product) => {
-				if (value == product.category) {
-					filteredPost.push(product);
-				}
-			});
-
-			renderProducts(filteredPost);
-		}
-	});
-
-	/////////////////////////== elSearch /////////////////////////
-	elSearch.addEventListener("input", (evt) => {
-		evt.preventDefault();
-
-		const searchProduct = [];
-
-		const value = elSearch.value;
-
-		products.forEach((product) => {
-			if (product.name.toLowerCase().includes(value.toLowerCase())) {
-				searchProduct.push(product);
-			}
-		});
-
-		renderProducts(searchProduct);
-	});
-
 	renderProducts(products);
 };
 asyncFunction();
+
+///////////////////////// elSelect /////////////////////////
+elSelect.addEventListener("change", (evt) => {
+	const value = elSelect.value;
+
+	const filteredPost = [];
+
+	if (value == "All Products") {
+		renderProducts(products);
+	} else {
+		products.forEach((product) => {
+			if (value == product.category) {
+				filteredPost.push(product);
+			}
+		});
+
+		renderProducts(filteredPost);
+	}
+});
+
+/////////////////////////== elSearch /////////////////////////
+elSearch.addEventListener("input", (evt) => {
+	evt.preventDefault();
+
+	const searchProduct = [];
+
+	const value = elSearch.value;
+
+	products.forEach((product) => {
+		if (product.name.toLowerCase().includes(value.toLowerCase())) {
+			searchProduct.push(product);
+		}
+	});
+
+	renderProducts(searchProduct);
+});

@@ -43,7 +43,6 @@ function renderProducts(array, parent = elCards) {
 
 	parent.appendChild(fragment);
 }
-export default renderProducts;
 
 ////////////////////////// asyncFunction /////////////////////////
 export const asyncFunction = async function () {
@@ -201,7 +200,6 @@ elCards.addEventListener("click", (evt) => {
 						headers: {
 							"Content-Type": "application/json",
 						},
-
 					})
 						.then((res) => {
 							asyncFunction();
