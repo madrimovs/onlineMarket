@@ -5,6 +5,7 @@ const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
 const elSelect = findElement("#select");
 const elSearch = findElement("#search");
+const elLoader = findElement(".loaderBtn");
 
 export let products = [];
 
@@ -52,6 +53,7 @@ const asyncFunction = async function () {
 		elSelect.appendChild(elOption);
 	}
 
+	elLoader.style.display = "none";
 	renderProducts(products);
 };
 asyncFunction();

@@ -5,8 +5,11 @@ const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
 const elSelect = findElement("#select");
 const elSearch = findElement("#search");
+const elLoader = findElement(".loaderBtn");
 
 const elForm = findElement("#product-form");
+elForm.style.display = "none";
+
 const editeForm = findElement("#edite-form");
 
 export let products = [];
@@ -62,6 +65,8 @@ export const asyncFunction = async function () {
 	}
 
 	renderProducts(products);
+	elLoader.style.display = "none";
+	elForm.style.display = "block";
 };
 asyncFunction();
 

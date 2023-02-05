@@ -67,6 +67,16 @@
 		</header>
 
 		<main>
+			<section>
+				<button
+					class="btn btn-dark loaderBtn position-absolute top-50 start-50 translate-middle"
+					type="button"
+					disabled
+				>
+					<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+					Please wait...
+				</button>
+			</section>
 			<!--================= EDITE FORM =================-->
 			<section>
 				<div class="container mt-5">
@@ -157,7 +167,7 @@
 								></button>
 							</div>
 							<div class="modal-body">
-								<form id="edite-form" class="form-control  mx-auto bg-dark shadow">
+								<form id="edite-form" class="form-control mx-auto bg-dark shadow">
 									<input
 										name="image"
 										type="text"
@@ -189,7 +199,7 @@
 										class="form-control mt-2 bg-dark text-light"
 									/>
 
-									<img class="editeImg form-control mt-3 p-0" src="" alt="">
+									<img class="editeImg form-control mt-3 p-0" src="" alt="" />
 								</form>
 							</div>
 							<div class="modal-footer">
