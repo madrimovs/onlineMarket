@@ -70,7 +70,7 @@ export const asyncFunction = async function () {
 };
 asyncFunction();
 
-//////////////////////// elForm ////////////////////////////
+//////////////////////// elForm /////////////////////////////////
 elForm.addEventListener("submit", (evt) => {
 	evt.preventDefault();
 	const target = evt.target;
@@ -109,7 +109,7 @@ elForm.addEventListener("submit", (evt) => {
 		});
 });
 
-/////////////////////////== elSearch /////////////////////////
+/////////////////////////== elSearch ///////////////////////////
 elSearch.addEventListener("input", (evt) => {
 	evt.preventDefault();
 
@@ -126,7 +126,7 @@ elSearch.addEventListener("input", (evt) => {
 	renderProducts(searchProduct);
 });
 
-///////////////////////// elSelect /////////////////////////
+///////////////////////// elSelect /////////////////////////////
 elSelect.addEventListener("change", () => {
 	const value = elSelect.value;
 
@@ -219,3 +219,5 @@ elCards.addEventListener("click", (evt) => {
 		});
 	}
 });
+
+

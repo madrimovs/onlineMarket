@@ -4,18 +4,19 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Online market</title>
 
+		<!-- ===================== BOOTSTRAP LINK =================== -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 			crossorigin="anonymous"
 		/>
+		<title>Online market</title>
 	</head>
 	<body class="bg-dark text-light">
 		<header>
-			<!--====================== NAVBAR ==========================-->
+			<!--====================== NAVBAR ===========================-->
 			<section>
 				<nav class="navbar navbar-dark bg-dark navbar-expand-lg shadow">
 					<div class="container">
@@ -63,10 +64,11 @@
 					</div>
 				</nav>
 			</section>
-			<!-- ======================================================================= -->
+			<!-- =================== END NAVBAR ======================== -->
 		</header>
 
 		<main>
+			<!-- ======================= LOADER ======================== -->
 			<section>
 				<button
 					class="btn btn-dark loaderBtn position-absolute top-50 start-50 translate-middle"
@@ -77,7 +79,9 @@
 					Please wait...
 				</button>
 			</section>
-			<!--================= EDITE FORM =================-->
+			<!-- ===================== END LOADER ====================== -->
+
+			<!--======================= EDITE FORM ======================-->
 			<section>
 				<div class="container mt-5">
 					<div class="row justify-content-center">
@@ -119,12 +123,13 @@
 					</div>
 				</div>
 			</section>
-			<!-- =========================================== -->
+			<!-- ==================== END EDITE FORM =================== -->
+
+			<!--======================= TEMPLATE ========================-->
 			<section>
 				<div class="container mt-5">
 					<div class="row product-cards gap-3 justify-content-center"></div>
 
-					<!--==================== TEMPLATE =====================-->
 					<template id="product-template">
 						<div class="col-6 card p-0 bg-dark shadow h-50" style="width: 20rem">
 							<img src="" class="card-img-top product-image" alt="" />
@@ -149,9 +154,10 @@
 					<!-- ================================================= -->
 				</div>
 			</section>
+			<!-- ==================== END TEMPLATE ===================== -->
 
+			<!-- ===================== EDITE MODAL ===================== -->
 			<section>
-				<!-- Modal -->
 				<div
 					class="modal fade"
 					id="exampleModal"
@@ -216,16 +222,20 @@
 					</div>
 				</div>
 			</section>
+			<!-- ==================== END EDITE MODAL ================== -->
 		</main>
 
+		<!-- ========================== FOOTER ======================== -->
 		<footer></footer>
 
+		<!-- ===================== SCRIPT BOOTSTRAP =================== -->
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 			crossorigin="anonymous"
 		></script>
 
+		<!-- ====================== SCRIPT JS========================== -->
 		<script type="module" src="./js/admin.js"></script>
 	</body>
 </html>

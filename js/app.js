@@ -9,7 +9,7 @@ const elLoader = findElement(".loaderBtn");
 
 export let products = [];
 
-////////////////////////// renderProducts /////////////////////////
+////////////////////////// renderProducts ////////////////////
 function renderProducts(array, parent = elCards) {
 	parent.textContent = "";
 
@@ -23,6 +23,11 @@ function renderProducts(array, parent = elCards) {
 		const category = findElement(".product-category", template);
 		const price = findElement(".product-price", template);
 		const overwiev = findElement(".product-overwiev", template);
+		const cardProduct = findElement(".productCard", template);
+
+		cardProduct.dataset.id = product.id;
+
+		cardProduct.addEventListener("click", targetCard(cardProduct));
 
 		image.src = product.image;
 		title.textContent = product.name;
@@ -36,7 +41,7 @@ function renderProducts(array, parent = elCards) {
 	parent.appendChild(fragment);
 }
 
-////////////////////////// asyncFunction /////////////////////////
+////////////////////////// asyncFunction /////////////////////
 const asyncFunction = async function () {
 	const res = await fetch(BASE_URL + "products/");
 
@@ -58,7 +63,7 @@ const asyncFunction = async function () {
 };
 asyncFunction();
 
-///////////////////////// elSelect /////////////////////////
+///////////////////////// elSelect //////////////////////////
 elSelect.addEventListener("change", (evt) => {
 	const value = elSelect.value;
 
@@ -77,7 +82,7 @@ elSelect.addEventListener("change", (evt) => {
 	}
 });
 
-/////////////////////////== elSearch /////////////////////////
+/////////////////////////// elSearch ////////////////////////
 elSearch.addEventListener("input", (evt) => {
 	evt.preventDefault();
 
@@ -93,3 +98,12 @@ elSearch.addEventListener("input", (evt) => {
 
 	renderProducts(searchProduct);
 });
+
+///////////////////////// TARGET CARD //////////////////////
+function targetCard(parent) {
+	parent.addEventListener("click", (evt) => {
+		const target = evt.target;
+
+		console.log(parent);
+	});
+}
