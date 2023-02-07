@@ -18,9 +18,22 @@ function renderProducts() {
 
 	const id = localStorage.getItem("id");
 
-	let data = {};
+	let data = {
+		image: image.value,
+		name: title.value,
+		price: price.value,
+		overwiev: overwiev.value,
+		category: category.value,
+	};
 
-	fetch(BASE_URL + "products/" + id, {})
+	fetch(BASE_URL + "products/" + id, {
+		method: "PUT",
+		body: JSON.stringify(data),
+
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
 		.then((json) => json.json())
 		.then((res) => {
 			console.log(res);

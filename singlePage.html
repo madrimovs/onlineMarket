@@ -19,7 +19,10 @@
 		<header>
 			<!--====================== NAVBAR ===========================-->
 			<section>
-				<nav class="navbar navbar-dark bg-dark navbar-expand-lg shadow">
+				<nav
+					style="z-index: 10"
+					class="navbar navbar-dark bg-dark navbar-expand-lg shadow position-fixed w-100 top-0 mb-5"
+				>
 					<div class="container">
 						<a class="navbar-brand" href="#">Market</a>
 						<button
@@ -83,12 +86,13 @@
 
 			<!--======================= TEMPLATE ========================-->
 			<section>
+				<br /><br />
 				<div class="container mt-5">
 					<div class="row product-cards gap-3 justify-content-center"></div>
 
 					<template id="product-template">
-						<div id="cardProduct" class="col-12 card p-0 bg-dark  shadow">
-							<img src="" class="card-img-top  product-image" alt="" />
+						<div id="cardProduct" class="col-12 card p-0 bg-dark shadow">
+							<img src="" class="card-img-top product-image" alt="" />
 							<div class="card-body">
 								<h5 class="card-title product-name"></h5>
 								<p class="card-text product-overwiev"></p>
@@ -102,7 +106,15 @@
 			<!-- ==================== END TEMPLATE ==================== -->
 		</main>
 
-		<footer></footer>
+		<footer>
+			<section>
+				<p
+					class="text-center text-secondary bg-dark shadow bottom-0 p-2 m-0 position-fixed w-100"
+				>
+					created by Madrimov
+				</p>
+			</section>
+		</footer>
 
 		<!-- ===================== SCRIPT BOOTSTRAP ================== -->
 		<script

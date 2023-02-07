@@ -219,5 +219,3 @@ elCards.addEventListener("click", (evt) => {
 		});
 	}
 });
-
-
