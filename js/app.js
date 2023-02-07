@@ -105,6 +105,6 @@ function targetCard(parent) {
 		const id = parent.dataset.id;
 
 		localStorage.setItem("id", id);
-		window.location.href = "http://127.0.0.1:5500/singlePage.html";
+		window.location.href = "/singlePage.html";
 	});
 }
