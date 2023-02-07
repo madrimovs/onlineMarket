@@ -46,7 +46,7 @@ function renderProducts(array, parent = elCards) {
 
 	parent.appendChild(fragment);
 }
-										
+
 ////////////////////////// asyncFunction /////////////////////////
 export const asyncFunction = async function () {
 	const res = await fetch(BASE_URL + "products/");
