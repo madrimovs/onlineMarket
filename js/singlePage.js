@@ -1,38 +1,43 @@
-// import findElement from "./helpers/findElement.js";
+import findElement from "./helpers/findElement.js";
 
-// const elTemplate = findElement("#product-template");
-// const elCards = findElement(".product-cards ");
+export const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
+const elTemplate = findElement("#product-template");
+const elCards = findElement(".product-cards");
+const elLoader = findElement(".loaderBtn");
 
-// ////////////////////////// renderProducts ////////////////////
-// function renderProducts(array, parent = elCards) {
-// 	parent.textContent = "";
+function renderProducts() {
+	const fragment = document.createDocumentFragment();
 
-// 	const fragment = document.createDocumentFragment();
+	const template = elTemplate.content.cloneNode(true);
 
-// 	array.forEach((product) => {
-// 		const template = elTemplate.content.cloneNode(true);
+	const image = findElement(".product-image", template);
+	const title = findElement(".product-name", template);
+	const category = findElement(".product-category", template);
+	const price = findElement(".product-price", template);
+	const overwiev = findElement(".product-overwiev", template);
 
-// 		const image = findElement(".product-image", template);
-// 		const title = findElement(".product-name", template);
-// 		const category = findElement(".product-category", template);
-// 		const price = findElement(".product-price", template);
-// 		const overwiev = findElement(".product-overwiev", template);
-// 		const cardProduct = findElement(".productCard", template);
+	const id = localStorage.getItem("id");
 
-// 		cardProduct.dataset.id = product.id;
+	let data = {};
 
-// 		cardProduct.addEventListener("click", targetCard(cardProduct));
+	fetch(BASE_URL + "products/" + id, {})
+		.then((json) => json.json())
+		.then((res) => {
+			console.log(res);
+			data = res;
 
-// 		image.src = product.image;
-// 		title.textContent = product.name;
-// 		overwiev.textContent = product.overwiev;
-// 		category.textContent = product.category;
-// 		price.textContent = product.price + "$";
+			image.src = data.image;
+			title.textContent = data.name;
+			overwiev.textContent = data.overwiev;
+			category.textContent = data.category;
+			price.textContent = data.price + "$";
+		});
 
-// 		fragment.appendChild(template);
-// 	});
+	fragment.appendChild(template);
 
-// 	parent.appendChild(fragment);
-// }
+	elCards.appendChild(fragment);
 
-// renderProducts();
+	elLoader.style.display = "none";
+}
+
+renderProducts();
