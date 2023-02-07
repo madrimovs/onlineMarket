@@ -5,6 +5,7 @@ const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
 const elLoader = findElement(".loaderBtn");
 
+/////////////////// renderProducts ///////////////////////
 function renderProducts() {
 	const fragment = document.createDocumentFragment();
 
