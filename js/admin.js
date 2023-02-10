@@ -1,6 +1,6 @@
 import findElement from "./helpers/findElement.js";
 
-const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
+const BASE_URL = "https://fakestoreapi.com/";
 const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
 const elSelect = findElement("#select");
@@ -24,10 +24,10 @@ function renderProducts(array, parent = elCards) {
 		const template = elTemplate.content.cloneNode(true);
 
 		const image = findElement(".product-image", template);
-		const title = findElement(".product-name", template);
+		const title = findElement(".product-title", template);
 		const category = findElement(".product-category", template);
 		const price = findElement(".product-price", template);
-		const overwiev = findElement(".product-overwiev", template);
+		const description = findElement(".product-description", template);
 
 		const deleteBtn = findElement("#deleteBtn", template);
 		const editeBtn = findElement("#editeBtn", template);
@@ -36,8 +36,8 @@ function renderProducts(array, parent = elCards) {
 		editeBtn.dataset.id = product.id;
 
 		image.src = product.image;
-		title.textContent = product.name;
-		overwiev.textContent = product.overwiev;
+		title.textContent = product.title;
+		description.textContent = product.description;
 		category.textContent = product.category;
 		price.textContent = product.price + "$";
 
@@ -79,17 +79,17 @@ elForm.addEventListener("submit", (evt) => {
 	const title = target.title.value;
 	const category = target.category.value;
 	const price = target.price.value;
-	const overwiev = target.image.value;
+	const description = target.image.value;
 
 	const newProduct = {
 		image: image.value,
-		name: title.value,
+		title: title.value,
 		category: category.value,
 		price: price.value,
-		overwiev: overwiev.value,
+		description: description.value,
 	};
 
-	fetch(BASE_URL + "/products", {
+	fetch(BASE_URL + "products", {
 		method: "POST",
 		body: JSON.stringify(newProduct),
 		headers: {
@@ -118,7 +118,7 @@ elSearch.addEventListener("input", (evt) => {
 	const value = elSearch.value;
 
 	products.forEach((product) => {
-		if (product.name.toLowerCase().includes(value.toLowerCase())) {
+		if (product.title.toLowerCase().includes(value.toLowerCase())) {
 			searchProduct.push(product);
 		}
 	});
@@ -176,25 +176,25 @@ elCards.addEventListener("click", (evt) => {
 				const title = editeForm.title;
 				const category = editeForm.category;
 				const price = editeForm.price;
-				const overwiev = editeForm.overwiev;
+				const description = editeForm.description;
 				const editeImg = findElement(".editeImg");
 				const editeButton = findElement("#editeButton");
 
 				editeImg.src = product.image;
-				image.alt = product.name;
+				image.alt = product.title;
 
 				image.value = product.image;
-				title.value = product.name;
+				title.value = product.title;
 				category.value = product.category;
 				price.value = product.price;
-				overwiev.value = product.overwiev;
+				description.value = product.description;
 
 				editeButton.addEventListener("click", () => {
 					const newArr = {
 						image: image.value,
-						name: title.value,
+						title: title.value,
 						price: price.value,
-						overwiev: overwiev.value,
+						description: description.value,
 						category: category.value,
 					};
 

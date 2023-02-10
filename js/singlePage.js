@@ -1,6 +1,6 @@
 import findElement from "./helpers/findElement.js";
 
-export const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
+export const BASE_URL = "https://fakestoreapi.com/";
 const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
 const elLoader = findElement(".loaderBtn");
@@ -12,37 +12,29 @@ function renderProducts() {
 	const template = elTemplate.content.cloneNode(true);
 
 	const image = findElement(".product-image", template);
-	const title = findElement(".product-name", template);
+	const title = findElement(".product-title", template);
 	const category = findElement(".product-category", template);
 	const price = findElement(".product-price", template);
-	const overwiev = findElement(".product-overwiev", template);
+	const description = findElement(".product-description", template);
 
 	const id = localStorage.getItem("id");
 
 	let data = {
 		image: image.value,
-		name: title.value,
+		title: title.value,
 		price: price.value,
-		overwiev: overwiev.value,
+		description: description.value,
 		category: category.value,
 	};
 
-	fetch(BASE_URL + "products/" + id, {
-		method: "PUT",
-		body: JSON.stringify(data),
-
-		headers: {
-			"Content-Type": "application/json",
-		},
-	})
+	fetch(BASE_URL + "products/" + id)
 		.then((json) => json.json())
 		.then((res) => {
-			console.log(res);
 			data = res;
 
 			image.src = data.image;
-			title.textContent = data.name;
-			overwiev.textContent = data.overwiev;
+			title.textContent = data.title;
+			description.textContent = data.description;
 			category.textContent = data.category;
 			price.textContent = data.price + "$";
 		});

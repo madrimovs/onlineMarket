@@ -6,6 +6,8 @@ const elEmail = findElement("#email");
 const elPassword = findElement("#password");
 const errorText = findElement("#errorText");
 const errorPas = findElement("#errorPas");
+const elCheckbox = findElement("#checkbox");
+const checkText = findElement("#chekcText");
 
 errorText.style.display = "none";
 errorPas.style.display = "none";
@@ -32,5 +34,9 @@ elForm.addEventListener("submit", (evt) => {
 
 	if (elPassword.value.length < 6) {
 		generateError(errorPas, "Parol 6 ta belgidan kam bo'lmasligi kerak");
+	}
+
+	if (elCheckbox.checked == false) {
+		generateError(checkText, "Login parol eslab qolinsinmi?");
 	}
 });

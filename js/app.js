@@ -1,6 +1,6 @@
 import findElement from "./helpers/findElement.js";
 
-export const BASE_URL = "https://63d79d2eafbba6b7c94093d4.mockapi.io/";
+export const BASE_URL = "https://fakestoreapi.com/";
 const elTemplate = findElement("#product-template");
 const elCards = findElement(".product-cards");
 const elSelect = findElement("#select");
@@ -19,10 +19,10 @@ function renderProducts(array, parent = elCards) {
 		const template = elTemplate.content.cloneNode(true);
 
 		const image = findElement(".product-image", template);
-		const title = findElement(".product-name", template);
+		const title = findElement(".product-title", template);
 		const category = findElement(".product-category", template);
 		const price = findElement(".product-price", template);
-		const overwiev = findElement(".product-overwiev", template);
+		const description = findElement(".product-description", template);
 		const cardProduct = findElement(".productCard", template);
 
 		cardProduct.dataset.id = product.id;
@@ -30,8 +30,8 @@ function renderProducts(array, parent = elCards) {
 		cardProduct.addEventListener("click", targetCard(cardProduct));
 
 		image.src = product.image;
-		title.textContent = product.name;
-		overwiev.textContent = product.overwiev;
+		title.textContent = product.title;
+		description.textContent = product.description;
 		category.textContent = product.category;
 		price.textContent = product.price + "$";
 
@@ -48,6 +48,8 @@ const asyncFunction = async function () {
 	let data = await res.json();
 
 	products = data;
+
+	console.log(data);
 
 	for (let i = 0; i < products.length; i++) {
 		const element = products[i];
@@ -91,7 +93,7 @@ elSearch.addEventListener("input", (evt) => {
 	const value = elSearch.value;
 
 	products.forEach((product) => {
-		if (product.name.toLowerCase().includes(value.toLowerCase())) {
+		if (product.title.toLowerCase().includes(value.toLowerCase())) {
 			searchProduct.push(product);
 		}
 	});
