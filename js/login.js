@@ -39,4 +39,19 @@ elForm.addEventListener("submit", (evt) => {
 	if (elCheckbox.checked == false) {
 		generateError(checkText, "Login parol eslab qolinsinmi?");
 	}
+
+	const user = {
+		username: elEmail.value,
+		password: elPassword.value,
+	};
+
+	fetch(BASE_URL + "auth/login", {
+		method: "POST",
+		body: JSON.stringify(user),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
+		.then((res) => res.json())
+		.then((data) => console.log(data));
 });

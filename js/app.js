@@ -49,8 +49,6 @@ const asyncFunction = async function () {
 
 	products = data;
 
-	console.log(data);
-
 	for (let i = 0; i < products.length; i++) {
 		const element = products[i];
 
