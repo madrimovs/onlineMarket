@@ -42,8 +42,8 @@ elForm.addEventListener("submit", (evt) => {
 		generateError(checkText, "Login parol eslab qolinsinmi?");
 	} else {
 		const user = {
-			email: "eve.holt@reqres.in",
-			password: "cityslicka",
+			email: elEmail.value, //eve.holt@reqres.in
+			password: elPassword.value, //cityslicka
 		};
 
 		fetch(BASE_URL + "api/login", {
@@ -67,7 +67,6 @@ elForm.addEventListener("submit", (evt) => {
 				}
 			})
 			.catch((err) => {
-				console.log(err);
 				generateError(allError, err);
 			});
 	}
