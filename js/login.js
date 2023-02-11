@@ -1,5 +1,6 @@
 import findElement from "./helpers/findElement.js";
-import { BASE_URL } from "./app.js";
+// import { BASE_URL } from "./app.js";
+const BASE_URL = "https://reqres.in/";
 
 const elForm = findElement("#form");
 const elEmail = findElement("#email");
@@ -8,6 +9,7 @@ const errorText = findElement("#errorText");
 const errorPas = findElement("#errorPas");
 const elCheckbox = findElement("#checkbox");
 const checkText = findElement("#chekcText");
+const allError = findElement("#allError");
 
 errorText.style.display = "none";
 errorPas.style.display = "none";
@@ -38,20 +40,35 @@ elForm.addEventListener("submit", (evt) => {
 
 	if (elCheckbox.checked == false) {
 		generateError(checkText, "Login parol eslab qolinsinmi?");
+	} else {
+		const user = {
+			email: "eve.holt@reqres.in",
+			password: "cityslicka",
+		};
+
+		fetch(BASE_URL + "api/login", {
+			method: "POST",
+			body: JSON.stringify(user),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => {
+				if (res.status === 400) {
+					throw new Error("Foydalanuvchi topilmadi");
+				}
+				return res.json();
+			})
+			.then((data) => {
+				if (data.token) {
+					const token = data.token;
+					localStorage.setItem("token", token);
+					window.location.href = "../admin.html";
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+				generateError(allError, err);
+			});
 	}
-
-	const user = {
-		username: elEmail.value,
-		password: elPassword.value,
-	};
-
-	fetch(BASE_URL + "auth/login", {
-		method: "POST",
-		body: JSON.stringify(user),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	})
-		.then((res) => res.json())
-		.then((data) => console.log(data));
 });

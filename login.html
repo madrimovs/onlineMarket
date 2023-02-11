@@ -42,11 +42,11 @@
 									<a class="nav-link" aria-current="page" href="./index.html">Home</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="./admin.html">Admin panel</a>
+									<a class="nav-link disabled" href="./admin.html">Admin panel</a>
 								</li>
 
 								<li class="nav-item">
-									<a class="nav-link disabled">Contacts</a>
+									<a href="./login.html" class="nav-link active">Log in</a>
 								</li>
 							</ul>
 							<form class="d-flex" role="search">
@@ -57,7 +57,7 @@
 									placeholder="Search"
 									aria-label="Search"
 								/>
-ы
+								ы
 								<!--==================== SEARCH/SELECT ======================-->
 								<select name="select" id="select" class="form-control w-25">
 									<option value="All Products">All</option>
@@ -92,7 +92,7 @@
 						<div class="">
 							<div class="card shadow-2-strong" style="border-radius: 1rem">
 								<div class="card-body p-5 text-center bg-dark">
-									<h3 class="mb-5">Sign in</h3>
+									<h3 class="mb-5">Log in</h3>
 
 									<form id="form">
 										<div class="form-outline">
@@ -116,6 +116,8 @@
 										<div class="d-flex mt-1">
 											<p id="chekcText" class="text-danger"></p>
 										</div>
+										<p id="allError" class="text-danger"></p>
+
 										<button class="btn btn-primary form-control btn-block mt-3" type="submit">Login</button>
 									</form>
 									<hr class="my-4" />

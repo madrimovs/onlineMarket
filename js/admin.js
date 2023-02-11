@@ -12,6 +12,10 @@ elForm.style.display = "none";
 
 const editeForm = findElement("#edite-form");
 
+const token = localStorage.getItem("token");
+if (!token) {
+	window.location.href = "../login.html";
+}
 export let products = [];
 
 ////////////////////////// renderProducts /////////////////////////
